@@ -27,23 +27,22 @@
                 />
               </div>
             </div>
-            <button type="submit" class="btn btn-primary mb-3 mt-5">
+            <button
+              type="button"
+              class="btn btn-primary mb-3 mt-5"
+              onclick="search()"
+            >
               Pesquisar
             </button>
           </form>
         </section>
         <section class="mt-5">
           <div class="display-6">Dados do Usuário</div>
-          <div id="name">Nicolas</div>
-          <div id="html_url">https://github.com/NicolasAFerro</div>
-          <div id="company">Nicolas</div>
-          <img
-            src="https://avatars.githubusercontent.com/u/141738096?v=4"
-            alt=""
-            width="220"
-            height="220"
-            class="shadow rounded"
-          />
+          <div id="name"></div>
+          <div id="html_url"></div>
+          <div id="company"></div>
+          <div id="avatar_url"></div>
+          
         </section>
         <section class="mt-5 mb-5">
           <div class="display-6 mb-5">Pesquisados</div>
@@ -84,5 +83,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
