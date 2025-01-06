@@ -6,13 +6,13 @@ function search(){
     //404 not found
     $.getJSON(url,(user)=> { 
         clearError();
-        setUserData(user);
+        showUserData(user);
      
 
        //qualquer erro na faixa do 400 ou 500
     }).fail( ()=>{ 
         showError("Usuário não Encontrado")
-        setUserData({})
+        showUserData({})
                 
 
     });
@@ -27,7 +27,7 @@ function showError(msg){
 function clearError(){ 
     document.getElementById("error").innerHTML = ''; 
 }
-function setUserData(user){  
+function showUserData(user){  
 
     document.getElementById("name").innerHTML    =user.name || ""; 
     document.getElementById("html_url").innerHTML=user.html_url || ""; 
