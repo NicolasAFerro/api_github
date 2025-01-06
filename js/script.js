@@ -11,7 +11,7 @@ function search(){
 
        //qualquer erro na faixa do 400 ou 500
     }).fail( ()=>{ 
-        showError("Usuário não Encontrado")
+        showError("Usuário não Encontrados")
         showUserData({})
                 
 
