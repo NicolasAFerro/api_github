@@ -1,3 +1,6 @@
+
+var userHistory=[];
+
 function search(){ 
     var username=document.getElementById('inputUserName').value;
     var url=`https://api.github.com/users/${username}`;
@@ -7,7 +10,11 @@ function search(){
     $.getJSON(url,(user)=> { 
         clearError();
         showUserData(user);
-     
+        if(isNewUser(user)){  
+            saveUser(user)
+            showNewUserHistory(user);
+        }
+       
 
        //qualquer erro na faixa do 400 ou 500
     }).fail( ()=>{ 
@@ -16,6 +23,28 @@ function search(){
                 
 
     });
+
+}
+function saveUser(user){ 
+    userHistory.push(user);
+}
+function isNewUser(user){ 
+    //u é um objeto do user history. 
+    //A ideia do filtro é, algo fica e algo passa.
+    //(u)para cada objeto do array userHistory 
+    return userHistory.filter( (u) => u.login===user.login).length == 0;
+
+}
+function showNewUserHistory(user){  
+    document.getElementById("history").innerHTML+=`<div class="col">
+    <img
+      src=${user.avatar_url}
+      alt=""
+      width="110"
+      height="110"
+      class="shadow rounded"
+    />
+</div>`
 
 }
 function showError(msg){  
@@ -43,4 +72,14 @@ function showUserData(user){
      `:"";
 
 
-}
+} 
+
+/* <div class="col">
+              <img
+                src="https://avatars.githubusercontent.com/u/141738096?v=4"
+                alt=""
+                width="110"
+                height="110"
+                class="shadow rounded"
+              />
+        </div> */
